@@ -100,6 +100,7 @@ public class ProfileRestController {
                                                  @RequestHeader @NotNull @Positive Long accountId) {
         //Метод должен обновить поле
         //Метод должен находится в ProfileService::updateVisibility(Visibility visibility, Long accountId)
+        // ТЕСТ
         return null;
     }
 
