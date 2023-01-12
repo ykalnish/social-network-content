@@ -14,6 +14,7 @@ import kata.academy.content.service.dto.ProfilePersonalInfoResponseDtoService;
 import kata.academy.content.service.dto.ProfileResponseDtoService;
 import kata.academy.content.service.dto.ProfileSearchedInfoResponseDtoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -98,10 +99,12 @@ public class ProfileRestController {
     @PatchMapping("/visibility")
     public ResponseEntity<Void> updateVisibility(@RequestParam @NotNull Visibility visibility,
                                                  @RequestHeader @NotNull @Positive Long accountId) {
+
         //Метод должен обновить поле
         //Метод должен находится в ProfileService::updateVisibility(Visibility visibility, Long accountId)
-        // ТЕСТ
-        return null;
+
+        profileService.updateVisibility(visibility, accountId);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{profileId}")
